@@ -49,6 +49,8 @@ const tradingCardData = [
   },
 ];
 
+// const [count, setCount] = React.useState(0);
+
 function TradingCard(props) {
   return (
     <div className="card">
@@ -59,9 +61,11 @@ function TradingCard(props) {
   );
 }
 
-function TradingCardContainer() {
-  const tradingCards = [];
+// What we worked on in Lab
 
+function TradingCardContainer() {
+  let tradingCards = [];
+  const [cards, updateCards] = React.useState([])
   for (const currentCard of tradingCardData) {
     tradingCards.push(
       <TradingCard
@@ -71,8 +75,17 @@ function TradingCardContainer() {
         imgUrl={currentCard.imgUrl}
       />
     );
+    const floatCard = {
+      name: 'Float',
+      skill: 'baking pretzels',
+      imgUrl: '/static/img/float.jpg'
+    };
+  
+    const [cards, updateCards] = React.useState([floatCard])
   }
-
+  console.log('JavaScript is working')
+  console.log(cards)
+  console.log(tradingCards)
   return <div className="grid">{tradingCards}</div>;
 }
 
